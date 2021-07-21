@@ -1,19 +1,3 @@
-# 데이터 병합하기
-setwd("./Data")  
-list.files() ## 해당 파일에 있는 리스트 가져오기
-
-file_list<-list.files() ## 가져온 리스트 변수로 저장 
-file_list
-
-final<-NULL ## 저장할 데이터 프레임 빈 변수 (NULL)로 선언 
-for(i in 1:length(file_list)){ ## for문으로 읽어오기  
-  file<-read.csv(file_list[i]) 
-  final<-rbind(final,file)  ## 묶어서 final에 넣기
-  ## cat("\n",i) 제대로 되고 있는지 출력용
-}
-# 병합한 데이터 ent.csv로 저장 
-write.csv(final,file="ent.csv")
-
 #라이브러리 추가
 install.packages("dplyr")
 library(dplyr)
@@ -25,7 +9,7 @@ font_import()
 y
 
 #데이터 추가
-enterprise<-read.csv("../ent.csv", fileEncoding = "utf-8", quote="", row.names=NULL)
+enterprise<-read.csv("../financialData/ent.csv", fileEncoding = "utf-8", quote="", row.names=NULL)
 
 #변수이름 변경
 enterprise<-rename(enterprise,X.기준년월=X..,X.시도명=X.기준년월.,X.시군구명=X.시도명.,X.업종중분류명=X.업종대분류명.,X.영업이익총액=X.매출중위액.)

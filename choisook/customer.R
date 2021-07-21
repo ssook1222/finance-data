@@ -9,7 +9,7 @@ font_import()
 y
 
 #데이터 추가
-customer<-read.csv("../sinhan.csv", fileEncoding = "euc-kr", quote="")
+customer<-read.csv("../financialData/sinhan.csv", fileEncoding = "euc-kr", quote="")
 customer
 
 #결측치 개수 빈도별 측정
