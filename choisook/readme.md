@@ -1,12 +1,9 @@
+## 💎 금융데이터 경진대회 최숙 Repository
+#### 주제 : 코로나 19로 매출에 타격을 입은 위험업종 분석
 ---
-title: "readme"
-author: "ssook"
-date: "7/17/2021"
-output: html_document
+### ✅ 진행상황    
+
+- 21.07.16 - 소비자 데이터, 기업 데이터 EDA 진행
+- 21.07.22 - 추후 기입 예정
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## 금융데이터 경진대회
+[7월 16일자 분석 결과 확인하러 이동!](https://www.notion.so/sooktarget/a6b3279f13854b618c2a8d6574c9e495)
