@@ -36,9 +36,9 @@ which(enterprise$X.영업이익총액>summary(enterprise$X.영업이익총액)[5
 # 영업이익총액 하한 이상치 개수 = 없음
 which(enterprise$X.영업이익총액<summary(enterprise$X.영업이익총액)[2] - 1.5*IQR(enterprise$X.영업이익총액))
 
-# 영업이익총액 이상치 제거
+# 영업이익총액 이상치 제거(BoxPlot 버전)
 enterprise <- enterprise[-which(enterprise$X.영업이익총액>summary(enterprise$X.영업이익총액)[5] + 1.5*IQR(enterprise$X.영업이익총액)),]
-enterprise <- enterprise[-which(enterprise$X.영업이익총액>summary(enterprise$X.영업이익총액)[2] - 1.5*IQR(enterprise$X.영업이익총액)),]
+enterprise <- enterprise[-which(enterprise$X.영업이익총액<summary(enterprise$X.영업이익총액)[2] - 1.5*IQR(enterprise$X.영업이익총액)),]
 boxplot(enterprise$X.영업이익총액)
 boxplot(enterprise$X.영업이익총액)$stats
 
