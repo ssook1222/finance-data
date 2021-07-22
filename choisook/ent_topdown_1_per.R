@@ -22,7 +22,7 @@ enterprise<-enterprise %>% filter(X.시도명 == "\"서울\"") %>%
 table(is.na(enterprise$X.영업이익총액))
 
 #기준년월, 매출총액, 영업이익총액, 지역구 중 결측치 있는 행 전부 제거
-enterprise <- enterprise[complete.cases(enterprise[c("X.영업이익총액")])]
+enterprise <- enterprise[ complete.cases(enterprise[ , c("X.영업이익총액")]), ]
 
 # 영업이익총액 요약해서 보여주기
 summary(enterprise$X.영업이익총액)

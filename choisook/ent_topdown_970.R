@@ -22,7 +22,7 @@ enterprise<-enterprise %>% filter(X.시도명 == "\"서울\"") %>%
 table(is.na(enterprise$X.영업이익총액))
 
 #기준년월, 매출총액, 영업이익총액, 지역구 중 결측치 있는 행 전부 제거
-enterprise <- enterprise[complete.cases(enterprise[c("X.영업이익총액")])]
+enterprise <- enterprise[ complete.cases(enterprise[ , c("X.영업이익총액")]), ]
 
 # 영업이익총액 요약해서 보여주기
 summary(enterprise$X.영업이익총액)
@@ -38,7 +38,6 @@ tail(sort(enterprise$X.영업이익총액), n=970)
 enterprise$X.영업이익총액 <- ifelse(enterprise$X.영업이익총액 < -5810949 | enterprise$X.영업이익총액 > 129031859, NA, enterprise$X.영업이익총액)
 enterprise <- enterprise[ complete.cases(enterprise[ , c("X.영업이익총액")]), ]
 
-enterprise$X.영업이익총액
 boxplot(enterprise$X.영업이익총액)
 boxplot(enterprise$X.영업이익총액)$stats
 
@@ -53,6 +52,16 @@ enterprise %>%
   summarise(avg=mean(X.영업이익총액),med=median(X.영업이익총액))
 view()
 
+# 각 분류별로 묶기
+jongrang<-enterprise %>% filter(X.시군구명 == "\"중랑구\"") %>%
+  select(X.기준년월,X.시군구명,X.영업이익총액,X.업종중분류명)
+
+jongrang %>%
+  group_by(X.기준년월) %>%
+  summarise(avg=mean(X.영업이익총액),med=median(X.영업이익총액),tot=sum(X.영업이익총액))
+
+write.csv(jongrang,file="중랑구.csv")
+
 #막대그래프로 표현
 ggplot(enterprise,aes(x=X.시군구명,y=X.영업이익총액,fill=X.기준년월))+
   geom_bar(stat="identity")+
@@ -63,6 +72,8 @@ ggplot(enterprise,aes(x=X.업종중분류명,y=X.영업이익총액,fill=X.기�
   theme(text=element_text(size=5, family = "NanumGothic"))
 
 ggsave("eik.jpg", width=35,height=10,dpi = 600)
+
+
 
 
 
