@@ -42,15 +42,15 @@ enterprise %>%
 view()
 
 
-영등포<-enterprise %>% filter(X.시군구명 == "\"영등포구\""&X.기준년월=="\"2020-12\"") %>%
+도봉<-enterprise %>% filter(X.시군구명 == "\"도봉구\""&X.기준년월=="\"2020-12\"") %>%
 # 각 분류별로 묶기
   select(X.기준년월,X.시군구명,X.영업이익총액,X.업종중분류명)
 
-영등포<-영등포 %>%
+도봉<-도봉 %>%
   group_by(X.업종중분류명) %>%
   summarise(avg=mean(X.영업이익총액),med=median(X.영업이익총액),tot=sum(X.영업이익총액))
 
-write.csv(영등포,file="영등포_매출액.csv")
+write.csv(도봉,file="도봉_매출액.csv")
 
 #막대그래프로 표현
 ggplot(enterprise,aes(x=X.시군구명,y=X.영업이익총액,fill=X.기준년월))+
