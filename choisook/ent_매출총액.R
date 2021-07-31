@@ -40,9 +40,10 @@ summary(enterprise$X.매출총액)
 
 # 영업이익총액_지역구 기준년월 그룹별로 묶기
 first<-enterprise %>%
-  group_by(X.시군구명, X.기준년월, X.업종중분류명) %>%
-  summarise(avg=mean(X.영업이익총액),med=median(X.영업이익총액))
+  group_by(X.시군구명,X.기준년월) %>%
+  summarise(영업med=mean(X.영업이익총액),매출med=median(X.매출총액),영업total=sum(X.영업이익총액),매출total=sum(X.매출총액))
 View(first)
+write.csv(first,file="영업이익VS매출.csv")
 
 
 #막대그래프로 표현
