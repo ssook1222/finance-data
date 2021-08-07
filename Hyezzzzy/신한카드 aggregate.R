@@ -1,4 +1,4 @@
-#ÆĞÅ°Áö ¼³Ä¡ ¹× ¶óÀÌºê·¯¸® Ãß°¡
+#íŒ¨í‚¤ì§€ ì„¤ì¹˜ ë° ë¼ì´ë¸ŒëŸ¬ë¦¬ ì¶”ê°€
 install.packages("dplyr")
 library(dplyr)
 install.packages("ggplot2")
@@ -8,8 +8,8 @@ library(UsingR)
 install.packages("readxl")
 library(readxl)
 
-#µ¥ÀÌÅÍ ºÒ·¯¿À±â
-shin <- readxl::read_excel(path="C:/data_fi/±İÀ¶´ëÈ¸_½ÅÇÑÀºÇà.xlsx",
+#ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°
+shin <- readxl::read_excel(path="C:/data_fi/ê¸ˆìœµëŒ€íšŒ_ì‹ í•œì€í–‰.xlsx",
                         sheet = "finance_data",
                         col_names=TRUE)
 
@@ -17,39 +17,93 @@ dim(shin)
 dim(shin[complete.cases(shin),])
 head(shin)
 
-#Áßº¹°ªÈ®ÀÎ
+#ì¤‘ë³µê°’í™•ì¸
 duplicates <- s %>% duplicated() %>% table()
 duplicates
 
-#°áÃø°ªÈ®ÀÎ
-table(is.na(s$°¡¸ÍÁ¡¸ÅÃâÀÔ±İ))
-table(is.na(s$Áö¿ª±¸))
-table(is.na(s$±âÁØ³â¿ù))
-table(is.na(s$½Å¿ë´ëÃâ±İ¾×))
-table(is.na(s$´ãº¸´ëÃâ±İ¾×))
+#ê²°ì¸¡ê°’í™•ì¸
+table(is.na(s$ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ))
+table(is.na(s$ì§€ì—­êµ¬))
+table(is.na(s$ê¸°ì¤€ë…„ì›”))
+table(is.na(s$ì‹ ìš©ëŒ€ì¶œê¸ˆì•¡))
+table(is.na(s$ë‹´ë³´ëŒ€ì¶œê¸ˆì•¡))
 
 
-#º¯¼ö »ı¼º ¹× ÇÊ¿äÇÑ µ¥ÀÌÅÍ ÃßÃâ
+#ë³€ìˆ˜ ìƒì„± ë° í•„ìš”í•œ ë°ì´í„° ì¶”ì¶œ
 shin <- shin %>%
-  mutate(´ëÃâÃÑÇÕ = ½Å¿ë´ëÃâ±İ¾×+´ãº¸´ëÃâ±İ¾×)
+  mutate(ëŒ€ì¶œì´í•© = ì‹ ìš©ëŒ€ì¶œê¸ˆì•¡+ë‹´ë³´ëŒ€ì¶œê¸ˆì•¡)
 
-shin <- shin %>% filter(°¡¸ÍÁ¡¸ÅÃâÀÔ±İ!=0&´ëÃâÃÑÇÕ!=0) %>% dplyr::select(±âÁØ³â¿ù, Áö¿ª±¸, °¡¸ÍÁ¡¸ÅÃâÀÔ±İ, ´ëÃâÃÑÇÕ)
+shin <- shin %>% filter(ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ!=0&ëŒ€ì¶œì´í•©!=0) %>% dplyr::select(ê¸°ì¤€ë…„ì›”, ì§€ì—­êµ¬, ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ, ëŒ€ì¶œì´í•©)
 head(shin)
 summary(shin)
 
-#µ¥ÀÌÅÍ ¿ä¾à ¹× »óÀÚ±×¸²
-summary(card$´ëÃâÃÑÇÕ)
-summary(card$°¡¸ÍÁ¡¸ÅÃâÀÔ±İ)
-boxplot(card$´ëÃâÃÑÇÕ)
-boxplot(card$°¡¸ÍÁ¡¸ÅÃâÀÔ±İ)
+#ë°ì´í„° ìš”ì•½ ë° ìƒìê·¸ë¦¼
+summary(card$ëŒ€ì¶œì´í•©)
+summary(card$ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ)
+boxplot(card$ëŒ€ì¶œì´í•©)
+boxplot(card$ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ)
 
-#aggregateÇÔ¼ö »ç¿ë
-card <- aggregate(´ëÃâÃÑÇÕ~±âÁØ³â¿ù+°¡¸ÍÁ¡¸ÅÃâÀÔ±İ, shin, mean)
+#aggregateí•¨ìˆ˜ ì‚¬ìš©
+card <- aggregate(ëŒ€ì¶œì´í•©~ê¸°ì¤€ë…„ì›”+ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ, shin, mean)
 
-#±âÁØ³â¿ù·Î ³ª´©±â
-card_201903 <- card %>% filter(±âÁØ³â¿ù==201903)
-card_201909 <- card %>% filter(±âÁØ³â¿ù==201909)
-card_202003 <- card %>% filter(±âÁØ³â¿ù==202003)
-card_202009 <- card %>% filter(±âÁØ³â¿ù==202009)
-card_202103 <- card %>% filter(±âÁØ³â¿ù==202103)
+#ê¸°ì¤€ë…„ì›”ë¡œ ë‚˜ëˆ„ê¸°
+card_201903 <- card %>% filter(ê¸°ì¤€ë…„ì›”==201903)
+card_201909 <- card %>% filter(ê¸°ì¤€ë…„ì›”==201909)
+card_202003 <- card %>% filter(ê¸°ì¤€ë…„ì›”==202003)
+card_202009 <- card %>% filter(ê¸°ì¤€ë…„ì›”==202009)
+card_202103 <- card %>% filter(ê¸°ì¤€ë…„ì›”==202103)
+
+
+
+#201903 íšŒê·€ë¶„ì„
+model_201903 <- lm(ëŒ€ì¶œì´í•© ~ ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ, data = card_201903)
+summary(model_201903)
+
+##201903 ì¶”ì •ëœ íšŒê·€ê·¸ë˜í”„
+plot(ëŒ€ì¶œì´í•©~ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ, data = card_201903)
+abline(model_201903,col="red")
+
+
+#201909 íšŒê·€ë¶„ì„
+model_201909 <- lm(ëŒ€ì¶œì´í•© ~ ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ, data = card_201909)
+summary(model_201909)
+
+##201909 ì¶”ì •ëœ íšŒê·€ê·¸ë˜í”„
+plot(ëŒ€ì¶œì´í•©~ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ, data = card_201909)
+abline(model_201909,col="red")
+
+
+#202003 íšŒê·€ë¶„ì„
+model_202003 <- lm(ëŒ€ì¶œì´í•© ~ ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ, data = card_202003)
+summary(model_202003)
+
+##202003 ì¶”ì •ëœ íšŒê·€ê·¸ë˜í”„
+plot(ëŒ€ì¶œì´í•©~ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ, data = card_202003)
+abline(model_202003,col="red")
+
+
+#202009 íšŒê·€ë¶„ì„
+model_202009 <- lm(ëŒ€ì¶œì´í•© ~ ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ, data = card_202009)
+summary(model_202009)
+
+##202009 ì¶”ì •ëœ íšŒê·€ê·¸ë˜í”„
+plot(ëŒ€ì¶œì´í•©~ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ, data = card_202009)
+abline(model_202009,col="red")
+
+
+#202103 íšŒê·€ë¶„ì„
+model_202103 <- lm(ëŒ€ì¶œì´í•© ~ ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ, data = card_202103)
+summary(model_202103)
+
+##202103 ì¶”ì •ëœ íšŒê·€ì‹ê·¸ë˜í”„
+plot(ëŒ€ì¶œì´í•©~ê°€ë§¹ì ë§¤ì¶œì…ê¸ˆ, data = card_202103)
+abline(model_202103,col="red")
+
+#ê° ìë£Œ ë“±ë¶„ì‚°ì„±, ì •ê·œì„±, ì„ í˜•ì„± ë§Œì¡±í•˜ëŠ”ì§€ í™•ì¸
+par(mfrow=c(2,2))
+plot(model_201903)
+plot(model_201909)
+plot(model_202003)
+plot(model_202009)
+plot(model_202103)
 
