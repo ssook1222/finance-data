@@ -197,3 +197,13 @@ mapp<-merge(map19,map20, by=c("분류"))
 mapp
 
  '''
+ 
+ 
+ ![image](https://user-images.githubusercontent.com/87536808/128622417-d62fec01-ef71-42ce-a31b-b0dc051abd47.png)
+ 
+ ![이동 총합](https://user-images.githubusercontent.com/87536808/128622425-d24c3d98-7a71-493f-889d-e3a9d85ac9a2.jpg)
+ 
+ ![19, 20 도보만](https://user-images.githubusercontent.com/87536808/128622435-aa03e274-acc4-436d-9af9-34b9ac24eba6.jpg)
+
+
+
