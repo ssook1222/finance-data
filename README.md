@@ -1,6 +1,6 @@
 # finance-data
 금융데이터 경진대회 team repo
-'''
+ '''
 #install.packages("dplyr")
 #library(dplyr)
 
@@ -23,9 +23,9 @@ gu20
 gu20<- gu20 %>% select(분류, 합계20)
 gu20
 
-'''
+ '''
 
-'''
+ '''
 #install.packages("dplyr")
 #library(dplyr)
 
@@ -58,9 +58,9 @@ library(ggplot2)
 #ggplot()+geom_bar(data=move, aes(x=분류, y=gu19, color="pink"),stat="identity")+geom_bar(data=move, aes(x=분류, y=gu20, color="red"),stat="identity")
 
 
-'''
+ '''
 
-'''
+ '''
 
 #도보만 비교하기
 #install.packages("dplyr")
@@ -98,9 +98,9 @@ walk19
 mov<-merge(walk19,walk20, by=c("분류"))
 mov
 
-'''
+  '''
 
-'''
+ '''
 
 #20대만 놓고 보기
 
@@ -148,9 +148,9 @@ movage<-merge(age19,age20, by=c("분류"))
 movage
 
 
-'''
+ '''
 
-'''
+ '''
 #도심 및 그 주변부로 보기
 
 mov20<-read.csv("C:\\Users\\Hanbeen Cho\\Desktop\\이동데이터 2020.csv")
@@ -196,4 +196,4 @@ map19
 mapp<-merge(map19,map20, by=c("분류"))
 mapp
 
-'''
+ '''
