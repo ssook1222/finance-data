@@ -1,7 +1,6 @@
 # finance-data
 금융데이터 경진대회 team repo
 
-```r
 #install.packages("dplyr")
 library(dplyr)
 
@@ -244,6 +243,3 @@ DF1901
 
 library(ggplot2)
 ggplot(DF1901, aes(x=지역구, y=합계1, group=1))+geom_line()+theme(plot.title=element_text(size=20))
-
-
-```
