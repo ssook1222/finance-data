@@ -131,6 +131,34 @@ corona_local<-corona_local %>% select(종로구.기준년월, 종로구.sum, 중
                               강동구.sum, 기타.sum
                               )
 corona_local<-rename(corona_local,기준년월=종로구.기준년월)
+View(corona_local)
+
+#코로나 확진자가 급 증가하는 포인트체크를 위한 각 행간 차 계산
+for(i in 1:length(corona_local)){
+  기타.dif<-corona_local$기타.sum[i+1]-corona_local$기타.sum[i]
+  print(기타.dif)
+}
+
+View(corona_local)
+corona_local[ , "기타.dif"] <- c(  19,
+                                 -6,
+                                 -3,
+                                 13,
+                                 -13,
+                                 157,
+                                 -40,
+                                 -47,
+                                 113,
+                                 1301,
+                                 -769,
+                                 -306,
+                                 -188,
+                                 69,
+                                 -52,
+                                 69,
+                                 318,
+                                 NA)
+View(corona_local)
 
 # 데이터 프레임 외부로 보내기
-write.csv(corona_local,file="corona_make.csv")
+write.csv(corona_local,file="corona_diff.csv")
