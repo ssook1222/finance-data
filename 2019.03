@@ -237,4 +237,10 @@ totdjak
 DF1903<-data.frame(지역구,합계3)
 DF1903
 
+
+#꺾은선 그래프
+library(ggplot2)
+ggplot(DF1903, aes(x=지역구, y=합계1, group=1))+geom_line()+theme(plot.title=element_text(size=20))
+
+
 ```
