@@ -1,7 +1,6 @@
 # finance-data
 금융데이터 경진대회 team repo
 
-```
 #19년 2월 자료
 sub1902<-read.csv("C:\\Users\\Hanbeen Cho\\Desktop\\카드이용2019\\CARD_SUBWAY_MONTH_201902 (1).csv")
 sub1902
@@ -241,4 +240,3 @@ DF1902
 library(ggplot2)
 ggplot(DF1902, aes(x=지역구, y=합계1, group=1))+geom_line()+theme(plot.title=element_text(size=20))
 
-```
