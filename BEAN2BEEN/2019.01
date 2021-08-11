@@ -1,7 +1,7 @@
 # finance-data
 금융데이터 경진대회 team repo
 
-```
+```r
 #install.packages("dplyr")
 library(dplyr)
 
