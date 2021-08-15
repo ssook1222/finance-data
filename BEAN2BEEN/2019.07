@@ -244,7 +244,7 @@ DF1907
 
 #꺾은선 그래프
 library(ggplot2)
-ggplot(DF1907, aes(x=지역구, y=합계1, group=1))+geom_line()+theme(plot.title=element_text(size=20))
+ggplot(DF1907, aes(x=지역구, y=합계7, group=1))+geom_line()+theme(plot.title=element_text(size=20))
 
 ```
 
