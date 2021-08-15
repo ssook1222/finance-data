@@ -242,5 +242,5 @@ DF1909<-data.frame(지역구,합계9)
 DF1909
 
 library(ggplot2)
-ggplot(DF1909, aes(x=지역구, y=합계1, group=1))+geom_line()+theme(plot.title=element_text(size=20))
+ggplot(DF1909, aes(x=지역구, y=합계9, group=1))+geom_line()+theme(plot.title=element_text(size=20))
 ```
