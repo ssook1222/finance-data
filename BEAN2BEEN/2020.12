@@ -240,6 +240,6 @@ DF2012
 
 #꺾은선 그래프 그리기
 library(ggplot2)
-ggplot(DF2012, aes(x=지역구, y=합계1, group=1))+geom_line()+theme(plot.title=element_text(size=20))
+ggplot(DF2012, aes(x=지역구, y=합계2012, group=1))+geom_line()+theme(plot.title=element_text(size=20))
 
 ```
