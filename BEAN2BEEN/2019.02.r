@@ -238,5 +238,5 @@ DF1902
 
 #꺾은선 그래프
 library(ggplot2)
-ggplot(DF1902, aes(x=지역구, y=합계1, group=1))+geom_line()+theme(plot.title=element_text(size=20))
+ggplot(DF1902, aes(x=지역구, y=합계2, group=1))+geom_line()+theme(plot.title=element_text(size=20))
 
