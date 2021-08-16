@@ -11,7 +11,7 @@ sub <- sub %>%
 
 subway <- sub %>%  dplyr::select(사용일자, 역명, 총계)
 head(subway)
-
+names(subway)[1] <- c("기준년월")
 
 #강서구
 gangseo<-subway %>% filter(역명 %in% c('방화', '개화산', '김포공항', '송정', '마곡', '발산', '우장산', '화곡', '까치산', '염창', '등촌', '증미', '가양', '양천향교', '마곡나루', '신방화', '공항시장', '개화'))
@@ -168,5 +168,5 @@ subway<-rbind(gangseo, yang, keum, kwan, eun, guro, dobong, jlang, gangdong, yon
 
 
 
-agg_sub <- aggregate(총계~사용일자+지역구, subway, mean)
+agg_sub <- aggregate(총계~기준년월+지역구, subway, mean)
 head(agg_sub)
