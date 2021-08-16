@@ -109,3 +109,4 @@ shin_은평구 <- ddply(shin_은평구, .(기준년월), summarise, avg매출입
 shin_종로구 <- ddply(shin_종로구, .(기준년월), summarise, avg매출입금 = mean(가맹점매출입금)) 
 shin_중구 <- ddply(shin_중구, .(기준년월), summarise, avg매출입금 = mean(가맹점매출입금)) 
 shin_중랑구 <- ddply(shin_중랑구, .(기준년월), summarise, avg매출입금 = mean(가맹점매출입금)) 
+
