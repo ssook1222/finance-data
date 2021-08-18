@@ -17,7 +17,6 @@ attach(please)
 #회귀분석하기
 lm.please<-lm(이동인구~가맹점매출입금, data=please)
 summary(lm.please)
-anova(lm.please)
 
 step(lm.please)
 
