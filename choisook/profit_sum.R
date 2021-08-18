@@ -6,7 +6,7 @@ library(dplyr)
 
 #데이터 불러오기
 enterprise<-read.csv("../financialData/ent.csv", fileEncoding = "utf-8", quote="", row.names=NULL)
-joong<-read.csv("./data/지역구_매출/중구.csv", fileEncoding = "utf-8", quote="", row.names=NULL)
+uj<-read.csv("./data/upjong.csv", fileEncoding = "utf-8", quote="", row.names=NULL)
 
 #변수이름 변경
 enterprise<-rename(enterprise,X.기준년월=X..,X.시도명=X.기준년월.,X.시군구명=X.시도명.,X.업종중분류명=X.업종대분류명.,X.영업이익총액=X.매출중위액.)
@@ -22,25 +22,25 @@ table(is.na(enterprise$X.영업이익총액))
 enterprise <- enterprise[ complete.cases(enterprise[ , c("X.영업이익총액")]), ]
 
 #데이터 추출
-joong2018<-enterprise %>% filter(X.시군구명 =="\"중구\""&X.기준년월=="\"2018-12\"") %>%
+enterprise_2018<-enterprise %>% filter(X.기준년월=="\"2018-12\"") %>%
   select(X.영업이익총액,X.업종중분류명) %>%
   group_by(X.업종중분류명) %>%
   summarise(sum=sum(X.영업이익총액))
 
-joong2019<-enterprise %>% filter(X.시군구명 =="\"중구\""&X.기준년월=="\"2019-12\"") %>%
+enterprise_2019<-enterprise %>% filter(X.기준년월=="\"2019-12\"") %>%
   select(X.영업이익총액,X.업종중분류명) %>%
   group_by(X.업종중분류명) %>%
   summarise(sum=sum(X.영업이익총액))
 
-joong2020<-enterprise %>% filter(X.시군구명 =="\"중구\""&X.기준년월=="\"2020-12\"") %>%
+enterprise_2020<-enterprise %>% filter(X.기준년월=="\"2020-12\"") %>%
   select(X.영업이익총액,X.업종중분류명) %>%
   group_by(X.업종중분류명) %>%
   summarise(sum=sum(X.영업이익총액))
 
-View(joong)
-joong<-joong[,-c(1)]
-# 한 번 데이터 보기
-joong_ts<-ts(joong)
-plot.ts(joong_ts)
+uj_ts<-ts(uj)
+View(uj)
 
-auto.arima(joong_ts)
+gas<-ts(uj$X[2:4])
+plot.ts(gas)
+auto.arima(gas)
+
