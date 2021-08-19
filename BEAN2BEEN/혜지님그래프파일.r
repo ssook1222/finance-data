@@ -22,4 +22,4 @@ summary(lm.please2)
 anova(lm.please2)
 
 #stepwise 로 유의미한 결과만 남겨보기 (이게 어제 혜지님께 캡쳐해드린 콘솔창 결과와 동일)
-
+step(lm.please2)
