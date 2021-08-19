@@ -21,3 +21,5 @@ summary(lm.please2)
 #지역구가 범주형이므로 anova 실행
 anova(lm.please2)
 
+#stepwise 로 유의미한 결과만 남겨보기 (이게 어제 혜지님께 캡쳐해드린 콘솔창 결과와 동일)
+
