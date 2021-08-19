@@ -55,3 +55,4 @@ ggplot(data = please, aes(x= 이동인구 , y= 총소비금액))+geom_point() + 
 
 summary(lm(총소비금액~이동인구, data=please))
 
+
