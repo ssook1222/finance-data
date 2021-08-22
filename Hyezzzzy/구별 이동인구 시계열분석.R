@@ -217,19 +217,19 @@ gnam.tsdiff3 <- diff(gnam.ts, differences = 3)
 plot.ts(gnam.tsdiff1)
 plot.ts(gnam.tsdiff2)
 plot.ts(gnam.tsdiff3)
-acf(gnam.tsdiff3)
-pacf(gnam.tsdiff3)
+acf(gnam.tsdiff2)
+pacf(gnam.tsdiff2)
 
 
 auto.arima(sub_gnam$총계)
-arima.gnam.1.3.2 <- arima(sub_gnam$총계, order = c(1,3,2))
+arima.gnam.1.2.2 <- arima(sub_gnam$총계, order = c(1,2,2))
 arima.gnam.0.1.0 <- auto.arima(sub_gnam$총계)
-arima.gnam.1.3.2$aic #더 작음
+arima.gnam.1.2.2$aic #더 작음
 arima.gnam.0.1.0$aic
 
-gnam.forecast <- forecast(arima.gnam.1.3.2)
-gnam.forecast
+predict(arima.gnam.1.2.2,n.ahead = 12)
 
+plot(predict(arima.gnam.1.2.2,n.ahead = 12)$pred)
 
 #강동구
 gangdong.ts <- ts(sub_gangdong$총계)
@@ -245,19 +245,19 @@ gangdong.tsdiff3 <- diff(gangdong.ts, differences = 3)
 plot.ts(gangdong.tsdiff1)
 plot.ts(gangdong.tsdiff2)
 plot.ts(gangdong.tsdiff3)
-acf(gangdong.tsdiff1)
-pacf(gangdong.tsdiff1)
+acf(gangdong.tsdiff2)
+pacf(gangdong.tsdiff2)
 
 
 auto.arima(sub_gangdong$총계)
-arima.gangdong.0.1.1 <- arima(sub_gangdong$총계, order = c(0,1,1))
+arima.gangdong.0.2.3 <- arima(sub_gangdong$총계, order = c(0,2,3))
 arima.gangdong.0.1.0 <- auto.arima(sub_gangdong$총계)
-arima.gangdong.0.1.1$aic 
-arima.gangdong.0.1.0$aic #더 작음
+arima.gangdong.0.2.3$aic #더 작음
+arima.gangdong.0.1.0$aic 
 
-gangdong.forecast <- forecast(arima.gangdong.0.1.0)
-gangdong.forecast
 
+predict(arima.gangdong.0.2.3,n.ahead = 12)
+plot(predict(arima.gangdong.0.2.3,n.ahead = 12)$pred)
 
 #강북구
 kbook.ts <- ts(sub_kbook$총계)
@@ -273,18 +273,18 @@ kbook.tsdiff3 <- diff(kbook.ts, differences = 3)
 plot.ts(kbook.tsdiff1)
 plot.ts(kbook.tsdiff2)
 plot.ts(kbook.tsdiff3)
-acf(kbook.tsdiff1)
-pacf(kbook.tsdiff1)
+acf(kbook.tsdiff2)
+pacf(kbook.tsdiff2)
 
 
 auto.arima(sub_kbook$총계)
-arima.kbook.0.1.1 <- arima(sub_kbook$총계, order = c(0,1,1))
+arima.kbook.1.2.1 <- arima(sub_kbook$총계, order = c(1,2,1))
 arima.kbook.0.1.0 <- auto.arima(sub_kbook$총계)
-arima.kbook.0.1.1$aic 
-arima.kbook.0.1.0$aic #더 작음
+arima.kbook.1.2.1$aic #더 작음
+arima.kbook.0.1.0$aic 
 
-kbook.forecast <- forecast(arima.kbook.0.1.0)
-kbook.forecast
+predict(arima.kbook.1.2.1,n.ahead = 12)
+plot(predict(arima.kbook.1.2.1,n.ahead = 12)$pred)
 
 
 #강서구
@@ -311,9 +311,9 @@ arima.gangseo.0.1.0 <- auto.arima(sub_gangseo$총계)
 arima.gangseo.0.2.1$aic  #더 작음
 arima.gangseo.0.1.0$aic
 
-gangseo.forecast <- forecast(arima.gangseo.0.2.1)
-gangseo.forecast
 
+predict(arima.gangseo.0.2.1,n.ahead = 12)
+plot(predict(arima.gangseo.0.2.1,n.ahead = 12)$pred)
 
 #관악구
 kwan.ts <- ts(sub_kwan$총계)
@@ -339,9 +339,9 @@ arima.kwan.0.1.0 <- auto.arima(sub_kwan$총계)
 arima.kwan.0.2.1$aic  #더 작음
 arima.kwan.0.1.0$aic  
 
-kwan.forecast <- forecast(arima.kwan.0.2.1)
-kwan.forecast
 
+predict(arima.kwan.0.2.1,n.ahead = 12)
+plot(predict(arima.kwan.0.2.1,n.ahead = 12)$pred)
 
 #광진구
 kwang.ts <- ts(sub_kwang$총계)
@@ -362,14 +362,14 @@ pacf(kwang.tsdiff3)
 
 
 auto.arima(sub_kwang$총계)
-arima.kwang.0.3.1 <- arima(sub_kwang$총계, order = c(0,3,1))
+arima.kwang.1.3.4 <- arima(sub_kwang$총계, order = c(1,3,4))
 arima.kwang.0.1.0 <- auto.arima(sub_kwang$총계)
-arima.kwang.0.3.1$aic  #더 작음
+arima.kwang.1.3.4$aic  #더 작음
 arima.kwang.0.1.0$aic  
 
-kwang.forecast <- forecast(arima.kwang.0.3.1)
-kwang.forecast
 
+predict(arima.kwang.1.3.4,n.ahead = 12)
+plot(predict(arima.kwang.1.3.4,n.ahead = 12)$pred)
 
 
 #구로구
@@ -386,19 +386,19 @@ guro.tsdiff3 <- diff(guro.ts, differences = 3)
 plot.ts(guro.tsdiff1)
 plot.ts(guro.tsdiff2)
 plot.ts(guro.tsdiff3)
-acf(guro.tsdiff3)
-pacf(guro.tsdiff3)
+acf(guro.tsdiff2)
+pacf(guro.tsdiff2)
 
 
 auto.arima(sub_guro$총계)
-arima.guro.0.3.1 <- arima(sub_guro$총계, order = c(0,3,1))
+arima.guro.0.2.1 <- arima(sub_guro$총계, order = c(0,2,1))
 arima.guro.0.1.0 <- auto.arima(sub_guro$총계)
-arima.guro.0.3.1$aic  #더 작음
+arima.guro.0.2.1$aic  #더 작음
 arima.guro.0.1.0$aic  
 
-guro.forecast <- forecast(arima.guro.0.3.1)
-guro.forecast
 
+predict(arima.guro.0.2.1,n.ahead = 12)
+plot(predict(arima.guro.0.2.1,n.ahead = 12)$pred)
 
 #금천구
 keum.ts <- ts(sub_keum$총계)
@@ -414,19 +414,19 @@ keum.tsdiff3 <- diff(keum.ts, differences = 3)
 plot.ts(keum.tsdiff1)
 plot.ts(keum.tsdiff2)
 plot.ts(keum.tsdiff3)
-acf(keum.tsdiff1)
-pacf(keum.tsdiff1)
+acf(keum.tsdiff3)
+pacf(keum.tsdiff3)
 
 
 auto.arima(sub_keum$총계)
-arima.keum.0.1.1 <- arima(sub_keum$총계, order = c(0,1,1))
+arima.keum.1.3.5 <- arima(sub_keum$총계, order = c(1,3,5))
 arima.keum.0.1.0 <- auto.arima(sub_keum$총계)
-arima.keum.0.1.1$aic  
-arima.keum.0.1.0$aic  #더 작음
+arima.keum.1.3.5$aic  #더 작음
+arima.keum.0.1.0$aic  
 
-keum.forecast <- forecast(arima.keum.0.1.0)
-keum.forecast
 
+predict(arima.keum.1.3.5,n.ahead = 12)
+plot(predict(arima.keum.1.3.5,n.ahead = 12)$pred)
 
 
 #노원구
@@ -443,19 +443,19 @@ noone.tsdiff3 <- diff(noone.ts, differences = 3)
 plot.ts(noone.tsdiff1)
 plot.ts(noone.tsdiff2)
 plot.ts(noone.tsdiff3)
-acf(noone.tsdiff2)
-pacf(noone.tsdiff2)
+acf(noone.tsdiff3)
+pacf(noone.tsdiff3)
 
 
 auto.arima(sub_noone$총계)
-arima.noone.0.2.1 <- arima(sub_noone$총계, order = c(0,2,1))
+arima.noone.1.3.4 <- arima(sub_noone$총계, order = c(1,3,4))
 arima.noone.0.1.0 <- auto.arima(sub_noone$총계)
-arima.noone.0.2.1$aic  #더 작음
+arima.noone.1.3.4$aic  #더 작음
 arima.noone.0.1.0$aic  
 
-noone.forecast <- forecast(arima.noone.0.2.1)
-noone.forecast
 
+predict(arima.noone.1.3.4,n.ahead = 12)
+plot(predict(arima.noone.1.3.4,n.ahead = 12)$pred)
 
 
 #도봉구
@@ -482,10 +482,9 @@ arima.dobong.0.1.0 <- auto.arima(sub_dobong$총계)
 arima.dobong.0.2.1$aic  #더 작음
 arima.dobong.0.1.0$aic  
 
-dobong.forecast <- forecast(arima.dobong.0.2.1)
-dobong.forecast
 
-
+predict(arima.dobong.0.2.1,n.ahead = 12)
+plot(predict(arima.dobong.0.2.1,n.ahead = 12)$pred)
 
 
 #동대문구
@@ -507,14 +506,14 @@ pacf(moon.tsdiff3)
 
 
 auto.arima(sub_moon$총계)
-arima.moon.0.3.1 <- arima(sub_moon$총계, order = c(0,3,1))
+arima.moon.1.3.3 <- arima(sub_moon$총계, order = c(1,3,3))
 arima.moon.0.1.0 <- auto.arima(sub_moon$총계)
-arima.moon.0.3.1$aic  #더 작음
+arima.moon.1.3.3$aic  #더 작음
 arima.moon.0.1.0$aic  
 
-moon.forecast <- forecast(arima.moon.0.3.1)
-moon.forecast
 
+predict(arima.moon.1.3.3,n.ahead = 12)
+plot(predict(arima.moon.1.3.3,n.ahead = 12)$pred)
 
 
 
@@ -537,14 +536,14 @@ pacf(djak.tsdiff3)
 
 
 auto.arima(sub_djak$총계)
-arima.djak.0.3.1 <- arima(sub_djak$총계, order = c(0,3,1))
+arima.djak.1.3.3 <- arima(sub_djak$총계, order = c(1,3,3))
 arima.djak.0.1.0 <- auto.arima(sub_djak$총계)
-arima.djak.0.3.1$aic  #더 작음
+arima.djak.1.3.3$aic  #더 작음
 arima.djak.0.1.0$aic  
 
-djak.forecast <- forecast(arima.djak.0.3.1)
-djak.forecast
 
+predict(arima.djak.1.3.3,n.ahead = 12)
+plot(predict(arima.djak.1.3.3,n.ahead = 12)$pred)
 
 
 #마포구
@@ -571,11 +570,9 @@ arima.mapo.0.1.0 <- auto.arima(sub_mapo$총계)
 arima.mapo.0.2.1$aic  #더 작음
 arima.mapo.0.1.0$aic  
 
-mapo.forecast <- forecast(arima.mapo.0.2.1)
-mapo.forecast
 
-
-
+predict(arima.mapo.0.2.1,n.ahead = 12)
+plot(predict(arima.mapo.0.2.1,n.ahead = 12)$pred)
 
 
 #서대문구
@@ -602,9 +599,9 @@ arima.seo.0.1.0 <- auto.arima(sub_seo$총계)
 arima.seo.0.2.1$aic  #더 작음
 arima.seo.0.1.0$aic  
 
-seo.forecast <- forecast(arima.seo.0.2.1)
-seo.forecast
 
+predict(arima.seo.0.2.1,n.ahead = 12)
+plot(predict(arima.seo.0.2.1,n.ahead = 12)$pred)
 
 
 
@@ -632,11 +629,9 @@ arima.scho.0.1.0 <- auto.arima(sub_scho$총계)
 arima.scho.0.2.1$aic  #더 작음
 arima.scho.0.1.0$aic  
 
-scho.forecast <- forecast(arima.scho.0.2.1)
-scho.forecast
 
-
-
+predict(arima.scho.0.2.1,n.ahead = 12)
+plot(predict(arima.scho.0.2.1,n.ahead = 12)$pred)
 
 
 #성동구
@@ -663,10 +658,8 @@ arima.sdong.0.1.0 <- auto.arima(sub_sdong$총계)
 arima.sdong.0.2.1$aic  #더 작음
 arima.sdong.0.1.0$aic  
 
-sdong.forecast <- forecast(arima.sdong.0.2.1)
-sdong.forecast
-
-
+predict(arima.sdong.0.2.1,n.ahead = 12)
+plot(predict(arima.sdong.0.2.1,n.ahead = 12)$pred)
 
 
 
@@ -684,19 +677,19 @@ seong.tsdiff3 <- diff(seong.ts, differences = 3)
 plot.ts(seong.tsdiff1)
 plot.ts(seong.tsdiff2)
 plot.ts(seong.tsdiff3)
-acf(seong.tsdiff2)
-pacf(seong.tsdiff2)
+acf(seong.tsdiff3)
+pacf(seong.tsdiff3)
 
 
 auto.arima(sub_seong$총계)
-arima.seong.0.2.2 <- arima(sub_seong$총계, order = c(0,2,2))
+arima.seong.1.3.2 <- arima(sub_seong$총계, order = c(1,3,2))
 arima.seong.0.1.0 <- auto.arima(sub_seong$총계)
-arima.seong.0.2.2$aic  #더 작음
+arima.seong.1.3.2$aic  #더 작음
 arima.seong.0.1.0$aic  
 
-seong.forecast <- forecast(arima.seong.0.2.2)
-seong.forecast
 
+predict(arima.seong.1.3.2,n.ahead = 12)
+plot(predict(arima.seong.1.3.2,n.ahead = 12)$pred)
 
 
 
@@ -724,9 +717,9 @@ arima.song.0.1.0 <- auto.arima(sub_song$총계)
 arima.song.0.2.1$aic  #더 작음
 arima.song.0.1.0$aic  
 
-song.forecast <- forecast(arima.song.0.2.1)
-song.forecast
 
+predict(arima.song.0.2.1,n.ahead = 12)
+plot(predict(arima.song.0.2.1,n.ahead = 12)$pred)
 
 
 
@@ -754,9 +747,9 @@ arima.yang.0.1.0 <- auto.arima(sub_yang$총계)
 arima.yang.0.2.1$aic  #더 작음
 arima.yang.0.1.0$aic  
 
-yang.forecast <- forecast(arima.yang.0.2.1)
-yang.forecast
 
+predict(arima.yang.0.2.1,n.ahead = 12)
+plot(predict(arima.yang.0.2.1,n.ahead = 12)$pred)
 
 
 
@@ -785,9 +778,9 @@ arima.yung.0.1.0 <- auto.arima(sub_yung$총계)
 arima.yung.0.2.1$aic  #더 작음
 arima.yung.0.1.0$aic  
 
-yung.forecast <- forecast(arima.yung.0.2.1)
-yung.forecast
 
+predict(arima.yung.0.2.1,n.ahead = 12)
+plot(predict(arima.yung.0.2.1,n.ahead = 12)$pred)
 
 
 
@@ -816,9 +809,9 @@ arima.yong.0.1.0 <- auto.arima(sub_yong$총계)
 arima.yong.0.2.1$aic  #더 작음
 arima.yong.0.1.0$aic  
 
-yong.forecast <- forecast(arima.yong.0.2.1)
-yong.forecast
 
+predict(arima.yong.0.2.1,n.ahead = 12)
+plot(predict(arima.yong.0.2.1,n.ahead = 12)$pred)
 
 
 
@@ -837,19 +830,19 @@ eun.tsdiff3 <- diff(eun.ts, differences = 3)
 plot.ts(eun.tsdiff1)
 plot.ts(eun.tsdiff2)
 plot.ts(eun.tsdiff3)
-acf(eun.tsdiff2)
-pacf(eun.tsdiff2)
+acf(eun.tsdiff3)
+pacf(eun.tsdiff3)
 
 
 auto.arima(sub_eun$총계)
-arima.eun.0.2.1 <- arima(sub_eun$총계, order = c(0,2,1))
+arima.eun.2.3.4 <- arima(sub_eun$총계, order = c(2,3,4))
 arima.eun.0.1.0 <- auto.arima(sub_eun$총계)
-arima.eun.0.2.1$aic  #더 작음
+arima.eun.2.3.4$aic  #더 작음
 arima.eun.0.1.0$aic  
 
-eun.forecast <- forecast(arima.eun.0.2.1)
-eun.forecast
 
+predict(arima.eun.2.3.4,n.ahead = 12)
+plot(predict(arima.eun.2.3.4,n.ahead = 12)$pred)
 
 
 #종로구
@@ -876,9 +869,9 @@ arima.jong.0.1.0 <- auto.arima(sub_jong$총계)
 arima.jong.1.3.2$aic  #더 작음
 arima.jong.0.1.0$aic  
 
-jong.forecast <- forecast(arima.jong.1.3.2)
-jong.forecast
 
+predict(arima.jong.1.3.2,n.ahead = 12)
+plot(predict(arima.jong.1.3.2,n.ahead = 12)$pred)
 
 
 
@@ -906,9 +899,9 @@ arima.jung.0.1.0 <- auto.arima(sub_jung$총계)
 arima.jung.0.2.1$aic  #더 작음
 arima.jung.0.1.0$aic  
 
-jung.forecast <- forecast(arima.jung.0.2.1)
-jung.forecast
 
+predict(arima.jung.0.2.1,n.ahead = 12)
+plot(predict(arima.jung.0.2.1,n.ahead = 12)$pred)
 
 
 
@@ -931,14 +924,14 @@ pacf(jlang.tsdiff2)
 
 
 auto.arima(sub_jlang$총계)
-arima.jlang.0.2.1 <- arima(sub_jlang$총계, order = c(0,2,1))
+arima.jlang.1.2.1 <- arima(sub_jlang$총계, order = c(1,2,1))
 arima.jlang.0.1.0 <- auto.arima(sub_jlang$총계)
-arima.jlang.0.2.1$aic  #더 작음
+arima.jlang.1.2.1$aic  #더 작음
 arima.jlang.0.1.0$aic  
 
-jlang.forecast <- forecast(arima.jlang.0.2.1)
-jlang.forecast
 
+predict(arima.jlang.1.2.1,n.ahead = 12)
+plot(predict(arima.jlang.1.2.1,n.ahead = 12)$pred)
 
 
 #서울전체
@@ -970,8 +963,7 @@ arima.agg_move.0.1.0 <- auto.arima(agg_move$총계)
 arima.agg_move.0.2.1$aic  #더 작음
 arima.agg_move.0.1.0$aic  
 
-agg_move.forecast <- forecast(arima.agg_move.0.2.1)
-agg_move.forecast
 
-
+predict(arima.agg_move.0.2.1,n.ahead = 12)
+plot(predict(arima.agg_move.0.2.1,n.ahead = 12)$pred)
 
