@@ -45,12 +45,12 @@ boxplot(enterprise$X.영업이익총액)$stats
 enterprise %>%
   group_by(X.시군구명, X.기준년월) %>%
   summarise(avg=mean(X.영업이익총액),med=median(X.영업이익총액))
-view()
+View()
 
 enterprise %>%
   group_by(X.시군구명, X.업종중분류명) %>%
   summarise(avg=mean(X.영업이익총액),med=median(X.영업이익총액))
-view()
+View()
 
 #막대그래프로 표현
 ggplot(enterprise,aes(x=X.시군구명,y=X.영업이익총액,fill=X.기준년월))+
