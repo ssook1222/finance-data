@@ -26,7 +26,7 @@ table(is.na(enterprise$X.영업이익총액))
 enterprise <- enterprise[ complete.cases(enterprise[ , c("X.영업이익총액")]), ]
 enterprise <- enterprise[ complete.cases(enterprise[ , c("X.매출총액")]), ]
 
-#이상치 제거
+#결측치 제거
 enterprise$X.영업이익총액 <- ifelse(enterprise$X.영업이익총액>enterprise$X.매출총액, NA, enterprise$X.영업이익총액)
 enterprise <- enterprise[ complete.cases(enterprise[ , c("X.영업이익총액")]), ]
 
