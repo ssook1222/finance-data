@@ -57,3 +57,20 @@ mean(covid20$가맹점매출입금)
 #평균절대오차 구하기
 MAE(19941224, covid20$가맹점매출입금)
 
+library(rattle)
+fancyRpartPlot(rt20,cex=0.7)
+
+#randomForest 패키지 이용해서 예측 모델 생성하기
+install.packages("randomForest")
+library(randomForest)
+
+co.randomF<-randomForest(covid20$가맹점매출입금~., data=covid20, ntree= 400, proximity=TRUE)
+plot(co.randomF)
+
+#예측 모델 특성 살피기
+importance(co.randomF)
+p.randomF<-predict(co.randomF, newdata=covid20)
+summary(covid20$가맹점매출입금)
+cor(p.randomF, covid20$가맹점매출입금)
+MAE(p.randomF, covid20$가맹점매출입금)
+
